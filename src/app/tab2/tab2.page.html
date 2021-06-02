@@ -1,17 +1,26 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="returnAlbums()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+      <ion-text slot="start">
+        <h1>Photos</h1>
+      </ion-text>
+   
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card *ngFor="let photo of photos">
+    <div class="noticias-more">
+      <ion-button  fill="clear" shape="round" (click)="presentActionSheet()">
+        <ion-icon name="ellipsis-vertical-circle-sharp" style="color: rgb(5, 255, 255);"></ion-icon>
+       </ion-button>
+    </div>
+   
+    <img [src]="photo.url"/>
+    <ion-text>
+      <h1>{{photo.title}}</h1>
+    </ion-text>
+  </ion-card>
 </ion-content>

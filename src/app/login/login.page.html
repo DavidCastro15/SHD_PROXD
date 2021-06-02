@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Validacion de datos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <form #form="ngForm" (ngSubmit)="buscar(form)">
+      <ion-item>
+        <ion-input style="text-align: center;" name="name" type="text" placeholder="Nombre" ngModel required></ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="block" shape="round" [disabled]="!form.valid">
+        Validar Datos
+      </ion-button>
+    </form>
+  </ion-card>
+</ion-content>
